@@ -70,7 +70,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $data['action'] = '/user/1/update';
+        $data['action'] = '/user/'. $user->id .'/update';
         $data['user'] = $user;
         return view('users.create_edit', compact('data'));
     }
@@ -82,7 +82,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(User $user, Request $request)
     {
         $request->validate(
             [

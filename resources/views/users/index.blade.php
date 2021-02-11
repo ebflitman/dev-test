@@ -6,18 +6,18 @@
 
 @section('content')
     <div class="row">
-        <div class="col-sm-9">
-            <table class="table">
+        <div class="col-sm-12">
+            <table class="table table-striped table-hover table-responsive">
                 <thead>
                 <tr>
                     <td colspan="3"><a href="/user/create" type="button" class="btn btn-primary">Create</a></td>
                 </tr>
                 <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Verified</th>
-                    <th>Last Updated</th>
-                    <th>Created</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Encrypted Password</th>
+                    <th scope="col">Last Updated</th>
+                    <th scope="col">Created</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -26,7 +26,7 @@
                     <tr>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->verified }}</td>
+                        <td>{{ substr($user->password,0,20) }}</td>
                         <td>{{ $user->updated_at->format('M d, Y h:ia e') }}</td>
                         <td>{{ $user->created_at->format('M d, Y h:ia e') }}</td>
                         <td>
@@ -48,6 +48,7 @@
         $(() =>
         {
             $('[data-toggle="tooltip"]').tooltip();
+
         });
     </script>
 @endsection

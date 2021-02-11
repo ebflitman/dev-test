@@ -39,5 +39,4 @@
             <a href="/" type="button" class="btn btn-default">Cancel</a>
         </form>
     </div>
-
 @endsection
